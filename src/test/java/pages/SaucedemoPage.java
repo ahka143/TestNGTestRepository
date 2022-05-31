@@ -49,5 +49,4 @@ public class SaucedemoPage {
 
     @FindBy(css = ".product_sort_container")
     public WebElement ddm;
-
 }
