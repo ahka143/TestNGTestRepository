@@ -25,6 +25,6 @@ public class DemoGuruTest {
         actions.dragAndDrop(guru99Page.ikinciBesBinButonuElementi, guru99Page.creditAmountElementi);
         // Perfect butonun goruntulendigini dogrulayin
         Assert.assertTrue(guru99Page.perfectButonuElementi.isDisplayed());
-        Driver.driverClose();
+        Driver.closeDriver();
     }
 }

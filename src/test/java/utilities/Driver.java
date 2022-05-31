@@ -32,8 +32,7 @@ public class Driver {
                     driver = new ChromeDriver();
             }
 
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -41,7 +40,7 @@ public class Driver {
         return driver;
     }
 
-    public static void driverClose() {
+    public static void closeDriver() {
         if (driver != null) {
             driver.close();
             driver = null;
