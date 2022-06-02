@@ -19,6 +19,7 @@ public class HotelMyCampE2E {
     @Test
     public void createHotel() throws InterruptedException {
         HotelMyCampPage hotelMyCampPage = new HotelMyCampPage();
+        WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
         //1.Tests packagenin altına class olusturun: CreateHotel
         //2.Bir metod olusturun: createHotel
         //3.https://www.hotelmycamp.com adresine git
@@ -27,7 +28,7 @@ public class HotelMyCampE2E {
         //4.Login butonuna tiklayip Username textbox ve password metin kutularını locate edin ve asagidaki verileri girin.
         //a. Username: manager
         //b. Password: Manager1!
-        WebDriverWait wait=new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
+
        wait.until(ExpectedConditions.elementToBeClickable(hotelMyCampPage.birinciLoginButonu));
         hotelMyCampPage.birinciLoginButonu.click();
         hotelMyCampPage.userNameTextBox.sendKeys(ConfigReader.getProperty("hmcValidUserName"));

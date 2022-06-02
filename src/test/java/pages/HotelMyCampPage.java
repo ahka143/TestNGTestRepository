@@ -28,9 +28,23 @@ public class HotelMyCampPage {
 
    @FindBy (xpath = "(//i[@class='icon-calendar'])[2]")
    public  WebElement hotelListButonu;
+    @FindBy (xpath = "(//i[@class='icon-calendar'])[3]")
+    public  WebElement hotelRoomsButonu;
+
+    @FindBy (xpath = "//span[@class='hidden-480']")
+    public WebElement addHotelRoomButonu;
 
    @FindBy (xpath = "//*[.='Add Hotel ']")
    public WebElement addHotelButonu;
+
+   @FindBy (xpath = "(//select[@class='form-control input-lg required'])[1]")
+   public WebElement odaSecimDDM;
+
+   @FindBy (xpath = "(//a[@class='label label-success'])[2]")
+   public WebElement odaUcretiUcYuz;
+
+   @FindBy (xpath = "//input[@class='form-control input-lg required ui-droppable']")
+   public WebElement ucretTextBox;
 
    @FindBy(xpath = "(//input[@class='form-control input-lg required'])[1]")
    public WebElement codeTextBox;
@@ -58,4 +72,12 @@ public class HotelMyCampPage {
 
    @FindBy (xpath = "//button[@class='btn btn-primary']")
    public WebElement okButton;
+
+   @FindBy(xpath = "//span[@class='caption-subject font-green-sharp bold uppercase']")
+    public WebElement listOfHotelRoomsText;
+
+   @FindBy (xpath = "//*[text()='Hotelrooms']")
+    public WebElement ikinciHotelRoomsButonu;
+
+
 }
