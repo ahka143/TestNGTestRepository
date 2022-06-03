@@ -78,6 +78,6 @@ public class RoomCreateTest {
         actions.moveToElement(hotelMyCampPage.ikinciHotelRoomsButonu).click().perform();
 //12. "LIST OF HOTELROOMS" textinin göründüğünü doğrulayın..
         Assert.assertTrue(hotelMyCampPage.listOfHotelRoomsText.isDisplayed());
-//Driver.closeDriver();
+        Driver.closeDriver();
     }
 }
