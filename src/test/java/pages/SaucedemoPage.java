@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class SaucedemoPage {
 
     public SaucedemoPage() {
@@ -46,6 +48,10 @@ public class SaucedemoPage {
     public WebElement besinciUrunFiyatElementi;
     @FindBy(xpath = "(//div[@class='inventory_item_price'])[6]")
     public WebElement altinciUrunFiyatElementi;
+
+    @FindBy (xpath = "//div[@class='inventory_item_price']")
+    public List<WebElement> fiyatListesi;
+
 
     @FindBy(css = ".product_sort_container")
     public WebElement ddm;

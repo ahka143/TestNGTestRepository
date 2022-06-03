@@ -10,6 +10,9 @@ import pages.SaucedemoPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Q3_SoftAssert {
 
     /*
@@ -20,11 +23,11 @@ public class Q3_SoftAssert {
      *     T1 : Choose price low to high with soft Assert
      *     T2 : Verify item prices are sorted from low to high with hard Assert
      */
-
+    SaucedemoPage saucedemoPage ;
 
     @Test
     public void test01() {
-        SaucedemoPage saucedemoPage = new SaucedemoPage();
+        saucedemoPage=new SaucedemoPage();
 
         Driver.getDriver().get(ConfigReader.getProperty("saucedemoUrl"));
 
@@ -41,7 +44,42 @@ public class Q3_SoftAssert {
         softAssert.assertTrue(secim.isDisplayed(), "low to high unselected");
 
         softAssert.assertAll();
+
+
+
+
+
         Assert.assertTrue(secim.isDisplayed());
         Driver.closeDriver();
+    }
+
+    @Test
+    public void test02() {
+        saucedemoPage=new SaucedemoPage();
+
+        Driver.getDriver().get(ConfigReader.getProperty("saucedemoUrl"));
+
+        saucedemoPage.userNameElementi.sendKeys("standard_user");
+        saucedemoPage.passwordElementi.sendKeys("secret_sauce");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.click(saucedemoPage.loginButonuElementi).perform();
+        Select select = new Select(saucedemoPage.ddm);
+
+        select.selectByValue("lohi");
+
+        List<Double> fiyatLarList=new ArrayList<>();
+
+        for (WebElement each: saucedemoPage.fiyatListesi
+             ) {
+            fiyatLarList.add(Double.parseDouble(each.getText().replace("$","")));
+
+        }
+        System.out.println(fiyatLarList);
+
+        for (int i = 0; i <saucedemoPage.fiyatListesi.size() ; i++) {
+            Assert.assertEquals((Double.parseDouble(saucedemoPage.fiyatListesi.get(i).getText()
+                    .replace("$",""))),fiyatLarList.get(i));
+        }
+
     }
 }
