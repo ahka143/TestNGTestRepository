@@ -23,7 +23,7 @@ public class Q2_DependsOn {
     @Test
     public void test01() {
         Driver.getDriver().get(ConfigReader.getProperty("facebookUrl"));
-
+        Driver.closeDriver();
     }
 
     @Test(dependsOnMethods = "test02")
