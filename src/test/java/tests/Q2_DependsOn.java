@@ -20,7 +20,7 @@ public class Q2_DependsOn {
 */
 
 
-    @Test
+    @Test(groups = "grup1")
     public void test01() {
         Driver.getDriver().get(ConfigReader.getProperty("facebookUrl"));
         Driver.closeDriver();

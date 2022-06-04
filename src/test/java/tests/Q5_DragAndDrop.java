@@ -10,7 +10,7 @@ import utilities.Driver;
 
 public class Q5_DragAndDrop {
 
-    @Test
+    @Test(groups = {"grup1", "grup2"})
     public void test01() throws InterruptedException {
         DhtmlgoodiesPage dhtmlgoodiesPage=new DhtmlgoodiesPage();
         // Go to URL : http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html

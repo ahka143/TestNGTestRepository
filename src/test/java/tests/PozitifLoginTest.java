@@ -9,7 +9,7 @@ import utilities.Driver;
 public class PozitifLoginTest {
     BrcPage brcPage;
 
-    @Test
+    @Test(groups = "grup2")
     public void positiveLoginTest() {
         brcPage = new BrcPage();
 // Bir test method olustur positiveLoginTest()
