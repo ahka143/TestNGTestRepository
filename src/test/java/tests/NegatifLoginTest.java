@@ -8,10 +8,10 @@ import utilities.Driver;
 
 public class NegatifLoginTest {
 
-    BrcPage brcPage=new BrcPage();
+    BrcPage brcPage;
     @Test
     public void wrongPasswordTest() throws InterruptedException {
-
+        brcPage=new BrcPage();
         //       https://www.bluerentalcars.com/ adresine git
         Driver.getDriver().get(ConfigReader.getProperty("brcUrl"));
         //      login butonuna bas
@@ -25,12 +25,12 @@ public class NegatifLoginTest {
         brcPage.ikinciLoginButonu.click();
         //Degerleri girildiginde sayfaya  sekilde girilemedigini test et
        Assert.assertTrue(brcPage.ilkloginButonu.isDisplayed());
-       Thread.sleep(2000);
         Driver.closeDriver();
     }
 
     @Test
     public void wrongEmailTest() throws InterruptedException {
+        brcPage=new BrcPage();
         //       https://www.bluerentalcars.com/ adresine git
         Driver.getDriver().get(ConfigReader.getProperty("brcUrl"));
         //      login butonuna bas
@@ -44,14 +44,14 @@ public class NegatifLoginTest {
         brcPage.ikinciLoginButonu.click();
         //Degerleri girildiginde sayfaya  sekilde girilemedigini test et
         Assert.assertTrue(brcPage.ilkloginButonu.isDisplayed());
-        Thread.sleep(3000);
-     //  Driver.closeDriver();
+      Driver.closeDriver();
 
 
     }
 
     @Test
     public void wrongEmailAndPasswordTest() throws InterruptedException {
+        brcPage=new BrcPage();
         //       https://www.bluerentalcars.com/ adresine git
         Driver.getDriver().get(ConfigReader.getProperty("brcUrl"));
         //      login butonuna bas
@@ -65,8 +65,7 @@ public class NegatifLoginTest {
         brcPage.ikinciLoginButonu.click();
         //Degerleri girildiginde sayfaya  sekilde girilemedigini test et
         Assert.assertTrue(brcPage.ilkloginButonu.isDisplayed());
-        Thread.sleep(3000);
-        // Driver.closeDriver();
+         Driver.closeDriver();
 
 
     }
