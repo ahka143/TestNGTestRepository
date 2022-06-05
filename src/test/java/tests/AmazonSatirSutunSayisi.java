@@ -5,19 +5,24 @@ import org.testng.annotations.Test;
 import pages.AmazonPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.TestBaseRapor;
 
-public class AmazonSatirSutunSayisi {
+public class AmazonSatirSutunSayisi extends TestBaseRapor {
     AmazonPage amazonPage;
 
     @Test
     public void satirSayisi() {
-        amazonPage = new AmazonPage();
+        amazonPage=new AmazonPage();
+        extentTest=extentReports.createTest("Amazon Satir sayisi");
         //Bu class’in altinda bir test method olusturun : satirSayisi() ve webtable’da 10 satir oldugunu
         //test edin
         Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
-
+        extentTest.info("Amazon ana sayfaya gider");
         Assert.assertEquals(amazonPage.anasayfaWebTableSatirlarElementi.size(), 10);
+        extentTest.pass("Anasayfanin en altindaki Webtable'in satir sayisinin 10 oldugunu test eder");
+        extentReports.flush();
         Driver.closeDriver();
+
     }
 
     @Test

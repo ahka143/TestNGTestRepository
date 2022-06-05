@@ -6,22 +6,27 @@ import org.testng.annotations.Test;
 import pages.AmazonPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.TestBaseRapor;
 
 import java.util.stream.Collectors;
 
-public class AmazonHucreTesti {
+public class AmazonHucreTesti extends TestBaseRapor {
     AmazonPage amazonPage;
 
     @Test
     public void hucretesti()  {
+        extentTest=extentReports.createTest("hucre sayisi");
         //webtable’da 3. satir 7.sutundaki yazinin “Home Services” yazisi
         //icerdigini test edin
         amazonPage = new AmazonPage();
         Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
+        extentTest.info("Amazon anasayfaya gider");
         String expectedStr = "Home Services";
         String actualStr = hucredekiDatayiBul(3, 7);
         Assert.assertTrue(actualStr.contains(expectedStr));
+        extentTest.pass("3.satir 7.sutunda 'Home Services ' icerdigini test eder.");
         Driver.closeDriver();
+        extentReports.flush();
 
     }
 
