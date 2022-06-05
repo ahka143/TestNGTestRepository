@@ -7,6 +7,8 @@ import pages.AmazonPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
+import java.util.stream.Collectors;
+
 public class AmazonHucreTesti {
     AmazonPage amazonPage;
 
@@ -19,6 +21,20 @@ public class AmazonHucreTesti {
         String expectedStr = "Home Services";
         String actualStr = hucredekiDatayiBul(3, 7);
         Assert.assertTrue(actualStr.contains(expectedStr));
+        Driver.closeDriver();
+
+    }
+
+    @Test
+    public void AmazonYazisi() {
+        //Yeni bir method olusturun : AmazonYazisi() ve tabloda 9 Hucrede
+        //“Amazon” yazisi bulundugunu test edin
+        amazonPage=new AmazonPage();
+
+        Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
+        int amazonIcerenHucreSayisi=amazonPage.anaSayfaWebTableButunHucreler.stream()
+                .filter(t->t.getText().contains("Amazon")).collect(Collectors.toList()).size();
+        Assert.assertEquals(amazonIcerenHucreSayisi,9);
         Driver.closeDriver();
 
     }

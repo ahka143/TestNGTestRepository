@@ -8,19 +8,23 @@ import utilities.Driver;
 import java.util.List;
 
 public class AmazonPage {
-   public AmazonPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public AmazonPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
-    @FindBy(id="twotabsearchtextbox")
+
+    @FindBy(id = "twotabsearchtextbox")
     public WebElement aramaKutusu;
 
 
     @FindBy(xpath = "//div[@class='a-section a-spacing-small a-spacing-top-small']")
     public WebElement aramaSonucElementi;
 
-    @FindBy (xpath = "//tr")
+    @FindBy(xpath = "//tr")
     public List<WebElement> anasayfaWebTableSatirlarElementi;
 
-    @FindBy (xpath = "//tr[1]//td")
+    @FindBy(xpath = "//tr[1]//td")
     public List<WebElement> anasayfaWebTableSutunlarElementi;
+
+    @FindBy(xpath = "//td")
+    public List<WebElement> anaSayfaWebTableButunHucreler;
 }
