@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class AmazonPage {
    public AmazonPage(){
         PageFactory.initElements(Driver.getDriver(),this);
@@ -15,4 +17,10 @@ public class AmazonPage {
 
     @FindBy(xpath = "//div[@class='a-section a-spacing-small a-spacing-top-small']")
     public WebElement aramaSonucElementi;
+
+    @FindBy (xpath = "//tr")
+    public List<WebElement> anasayfaWebTableSatirlarElementi;
+
+    @FindBy (xpath = "//tr[1]//td")
+    public List<WebElement> anasayfaWebTableSutunlarElementi;
 }
