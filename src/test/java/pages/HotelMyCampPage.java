@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class HotelMyCampPage {
 
     public HotelMyCampPage(){
@@ -78,6 +80,23 @@ public class HotelMyCampPage {
 
    @FindBy (xpath = "//*[text()='Hotelrooms']")
     public WebElement ikinciHotelRoomsButonu;
+
+
+    @FindBy(tagName = "h1")
+    public WebElement ourRestourantYazisi;
+
+    @FindBy(xpath = "//div[@style='background-image: url(/siteTemplate/images/about.jpg);']")
+    public WebElement solTaraftakiResim;
+
+    @FindBy (xpath = "//div[@class='col-md-7 py-5 wrap-about pb-md-5 ftco-animate fadeInUp ftco-animated']")
+    public  WebElement resminSagindakiAciklama;
+
+    @FindBy (xpath = "//li[@id='navRestaurant']")
+    public WebElement restourantSayfasiLinki;
+
+    @FindBy (xpath = "//div[@class='col-md-6']")
+    public List<WebElement> restourantMenuSutunList;
+
 
 
 }
